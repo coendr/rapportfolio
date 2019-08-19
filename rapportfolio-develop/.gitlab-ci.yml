@@ -1,0 +1,47 @@
+stages:
+- build
+- test
+
+composer:
+  stage: build
+  image: internalprojectmanger/ipm-docker:1.0
+  tags:
+  - docker
+  - gce
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-composer
+    paths:
+    - vendor/
+  script:
+  - composer install --dev --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+  - cp .env.example .env
+  - php artisan key:generate
+  artifacts:
+    expire_in: 1 month
+    paths:
+    - vendor/
+    - .env
+
+codestyle:
+  stage: test
+  image: internalprojectmanger/ipm-docker:1.0
+  tags:
+  - docker
+  - gce
+  dependencies:
+  - composer
+  script:
+  - php vendor/bin/phpcs --error-severity=1 --warning-severity=8 --standard=PSR2 --extensions=php --ignore=app/Support/helpers.php app
+  allow_failure: true
+
+phpunit:
+  stage: test
+  image: internalprojectmanger/ipm-docker:1.0
+  tags:
+  - docker
+  - gce
+  dependencies:
+  - composer
+  script:
+  - php vendor/bin/phpunit --coverage-text --colors=never
+

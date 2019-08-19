@@ -1,0 +1,121 @@
+<style>
+
+th, td{
+  align-self: center;
+  text-align: center;
+}
+
+body {
+    background-color: #00CBEA;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.input-field input[type=text]:focus + label {
+    color: #e91e63 !important;
+}
+
+.input-field input[type=password]:focus + label {
+    color: #e91e63 !important;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+.input-field .prefix.active {
+    color: #e91e63 !important;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.dropdown-content {
+    min-width: 0px;
+    min-height: 0px;
+    overflow: visible !important;
+}
+
+.secondDropDown {
+    /*adjust by your needs*/
+    margin-left: 122px !important;
+    margin-top: -50px !important;
+}
+
+.secondDropDownAdmin {
+    /*adjust by your needs*/
+    margin-left: 141px !important;
+    margin-top: -50px !important;
+}
+
+#code{
+display: none;
+}
+
+.select-dropdown{
+    overflow-y: auto !important;
+    max-height: 250px;
+}
+
+.option-color li > a, .option-color li > span {
+    color: black !important;
+}
+
+tbody {
+    display:block;
+    height: auto;
+    max-height: 350px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+table {
+    width:100%;
+}
+
+.collection{
+    height: auto;
+    max-height: 388px;
+    overflow: auto;
+}
+/*overflow*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: darkgray;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+</style>
